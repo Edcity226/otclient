@@ -30,6 +30,7 @@ Panel
   anchors.bottom: parent.bottom
   anchors.horizontalCenter: parent.horizontalCenter
   image-source: /images/ui/panel_top
+  visible: false
   
   UIWidget
     phantom: true

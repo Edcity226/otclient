@@ -1,4 +1,5 @@
 EnterGame = {}
+local serverIP = '127.0.0.1'
 
 -- private variables
 local loadBox
@@ -112,18 +113,6 @@ local function onUpdateNeeded(protocol, signature)
     end
 end
 
-local function updateLabelText()
-    if enterGame:getChildById('clientComboBox') and tonumber(enterGame:getChildById('clientComboBox'):getText()) > 1080 then
-        enterGame:setText("Journey Onwards")
-        enterGame:getChildById('emailLabel'):setText("Email:")
-        enterGame:getChildById('rememberEmailBox'):setText("Remember Email:")
-    else
-        enterGame:setText("Enter Game")
-        enterGame:getChildById('emailLabel'):setText("Acc Name:")
-        enterGame:getChildById('rememberEmailBox'):setText("Remember password:")
-    end
-end
-
 -- public functions
 function EnterGame.init()
     enterGame = g_ui.displayUI('entergame')
@@ -207,8 +196,6 @@ function EnterGame.init()
         EnterGame.toggleStayLoggedBox(clientVersion, true)
     end
 
-    updateLabelText()
-
     enterGame:hide()
 
     connect(g_game, {
@@ -222,6 +209,7 @@ function EnterGame.init()
     if g_app.isRunning() and not g_game.isOnline() then
         enterGame:show()
     end
+    EnterGame.setUniqueServer(serverIP, 7171, 1100, 800, 90)
 end
 
 function EnterGame.hidePanels()
@@ -558,7 +546,6 @@ function EnterGame.onClientVersionChange(comboBox, text, data)
     local clientVersion = tonumber(text)
     EnterGame.toggleAuthenticatorToken(clientVersion)
     EnterGame.toggleStayLoggedBox(clientVersion)
-    updateLabelText()
 end
 
 function EnterGame.tryHttpLogin(clientVersion, httpLogin)

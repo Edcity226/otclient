@@ -35,6 +35,7 @@ local default_info = {
 function init()
     g_ui.importStyle('calendar')
     bottomMenu = g_ui.displayUI('bottommenu')
+    bottomMenu:hide()
 
     calendarWindow = g_ui.createWidget('CalendarGrid', rootWidget)
     calendarCurrentMonth = calendarWindow:recursiveGetChildById('calendarCurrentMonth')
@@ -100,9 +101,10 @@ function hide()
 end
 
 function show()
-    bottomMenu:show()
+    bottomMenu:hide()
+    --[[ bottomMenu:show()
     bottomMenu:raise()
-    bottomMenu:focus()
+    bottomMenu:focus() ]]
 end
 
 -- @ Store showoff

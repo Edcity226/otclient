@@ -7,6 +7,7 @@ controller:registerEvents(g_game, {
         -- g_game.enableFeature(GameAllowCustomBotScripts)
 
         g_game.enableFeature(GameFormatCreatureName)
+        g_game.enableFeature(GameSpritesAlphaChannel)       
 
         -- For Walk
         g_game.enableFeature(GameLatencyAdaptiveCamera)

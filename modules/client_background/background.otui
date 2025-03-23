@@ -10,6 +10,16 @@ Panel
   margin-top: 1
   focusable: false
 
+  UIWidget
+    id: logo
+    image-source: /images/logo
+    anchors.top: parent.top
+    anchors.HorizontalCenter: parent.HorizontalCenter
+    image-smooth: false
+    image-fixed-ratio: true
+    margin-top: 50
+    shader: 
+    
   UILabel
     id: clientVersionLabel
     background-color: #00000099
