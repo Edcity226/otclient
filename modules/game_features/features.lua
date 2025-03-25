@@ -8,7 +8,7 @@ controller:registerEvents(g_game, {
 
         g_game.enableFeature(GameFormatCreatureName)
         g_game.enableFeature(GameSpritesAlphaChannel)       
-
+        g_game.enableFeature(GameMagicEffectU16)
         -- For Walk
         g_game.enableFeature(GameLatencyAdaptiveCamera)
         g_game.enableFeature(GameAllowPreWalk)
